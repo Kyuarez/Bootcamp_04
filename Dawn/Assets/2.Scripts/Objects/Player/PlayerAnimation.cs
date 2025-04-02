@@ -68,4 +68,9 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetTrigger("OnGrounded");
         anim.ResetTrigger("OnFall");
     }
+
+    public void OnSlide()
+    {
+        anim.SetTrigger("OnSlide");
+    }
 }
