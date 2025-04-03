@@ -22,4 +22,22 @@ public class PlayerController : MonoBehaviour
             attack.PerformAttack();
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Pickup") == true)
+        {
+            ItemData data = collision.gameObject.GetComponent<ItemData>();
+            if (data != null) 
+            {
+                //TODO : 이거 테스트 코드임
+                if (data.ItemID == 477) 
+                {
+                    SoundManager.Instance.PlaySFX(SFXType.SFX_UI_Accept);
+                    GameManager.Instance.UpdateBeadCount(1);
+                    Destroy(collision.gameObject);
+                }
+            }
+        }
+    }
 }

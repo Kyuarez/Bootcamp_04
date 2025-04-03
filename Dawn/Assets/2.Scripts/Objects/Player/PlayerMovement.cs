@@ -15,7 +15,11 @@ public class PlayerMovement : MonoBehaviour
     private bool isJump = false;
 
     private PlayerAnimation anim;
-
+    
+    public bool IsGrounded
+    {
+        get { return isGrounded; }
+    }
 
     private void Awake()
     {

@@ -34,6 +34,7 @@ public class PlayerAnimation : MonoBehaviour
     public void OnDie()
     {
         anim.SetTrigger("OnDie");
+        SoundManager.Instance.PlaySFX(SFXType.SFX_Human_Women_Death);
     }
     public void OnJump()
     {
@@ -73,4 +74,17 @@ public class PlayerAnimation : MonoBehaviour
     {
         anim.SetTrigger("OnSlide");
     }
+
+    #region OnAnimationEvent
+    public void OnFootSoundEvent()
+    {
+        
+
+        SoundManager.Instance.PlaySFX(SFXType.SFX_Human_Foot_Grass);
+    }
+    public void OnAttackSoundEvent()
+    {
+        SoundManager.Instance.PlaySFX(SFXType.SFX_Weapon_whoosh);
+    }
+    #endregion
 }
