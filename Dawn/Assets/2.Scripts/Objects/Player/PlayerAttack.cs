@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,10 +15,12 @@ public class PlayerAttack : MonoBehaviour
     private Vector3 originPos = new Vector3(0.2f, 0f, 0f);
     private Vector3 flipPos = new Vector3(-0.2f, 0f, 0f);
 
+
     private void Awake()
     {
         playerAnim = GetComponent<PlayerAnimation>();
         anim = GetComponent<Animator>();
+        
     }
 
     public void PerformAttack()
@@ -41,6 +44,7 @@ public class PlayerAttack : MonoBehaviour
     private IEnumerator AttackDelayCo()
     {
         isAttack = true;
+
         yield return null;
 
         AnimatorStateInfo info = anim.GetCurrentAnimatorStateInfo(0);
@@ -54,7 +58,6 @@ public class PlayerAttack : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
         }
-
         isAttack = false;
     }
 

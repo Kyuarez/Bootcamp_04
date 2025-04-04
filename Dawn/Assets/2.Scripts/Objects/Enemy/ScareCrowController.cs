@@ -18,8 +18,16 @@ public class ScareCrowController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("PlayerAttack") == true)
+        if (collision.gameObject.CompareTag("PlayerAttack") == true)
         {
+            CameraShake shake = Camera.main.GetComponent<CameraShake>();
+            if (shake != null)
+            {
+                //shake.OnCameraShake(0.5f, 0.1f);
+                shake.GenerateCameraImpulse();
+            }
+
+
             FXManager.Instance.FXPlay(FXType.FX_Player_NormalAttack, transform.position, new Vector3(1, 1, 1));
             coroutine = StartCoroutine(ChangeColorTemporaily());
         }
