@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     private PlayerAttack attack;
     private PlayerHealth health;
 
+
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
@@ -39,5 +40,10 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SetHitPosition()
+    {
+        attack.SetHitPosition(movement.CheckFlip());
     }
 }

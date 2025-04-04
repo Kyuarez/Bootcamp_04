@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField] private GameObject hitArea;
+
     private PlayerAnimation playerAnim;
     private Animator anim;
 
     private bool isAttack = false;
+
+    private Vector3 originPos = new Vector3(0.2f, 0f, 0f);
+    private Vector3 flipPos = new Vector3(-0.2f, 0f, 0f);
 
     private void Awake()
     {
@@ -51,5 +56,17 @@ public class PlayerAttack : MonoBehaviour
         }
 
         isAttack = false;
+    }
+
+    public void SetHitPosition(bool isFlip)
+    {
+        if (isFlip == true) 
+        {
+            hitArea.transform.localPosition = flipPos;
+        }
+        else
+        {
+            hitArea.transform.localPosition = originPos;
+        }
     }
 }

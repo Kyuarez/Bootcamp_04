@@ -51,6 +51,12 @@ public enum PlayerEventType
 {
     Tutorial_Input_Arrow,
     Tutorial_Input_Jump,
+}
+
+public enum FXType
+{
+    FX_Player_NormalAttack,
+    FX_Player_Damaged,
 
 }
 #endregion

@@ -21,6 +21,12 @@ public class PlayerMovement : MonoBehaviour
         get { return isGrounded; }
     }
 
+    public bool CheckFlip()
+    {
+        return spr.flipX;
+    }
+
+
     private void Awake()
     {
         spr = GetComponent<SpriteRenderer>();

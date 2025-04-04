@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
+    private PlayerController controller;
     private Animator anim;
 
     private void Awake()
     {
+        controller = GetComponent<PlayerController>();  
         anim = GetComponent<Animator>();
     }
 
@@ -78,13 +80,20 @@ public class PlayerAnimation : MonoBehaviour
     #region OnAnimationEvent
     public void OnFootSoundEvent()
     {
-        
-
         SoundManager.Instance.PlaySFX(SFXType.SFX_Human_Foot_Grass);
     }
     public void OnAttackSoundEvent()
     {
+        controller.SetHitPosition();
         SoundManager.Instance.PlaySFX(SFXType.SFX_Weapon_whoosh);
+    }
+    public void OnAttackHitArea()
+    {
+
+    }
+    public void OffAttackHitArea()
+    {
+
     }
     #endregion
 }
