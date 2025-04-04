@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public Action<int> OnUpdateBeadCount;
 
     public PlayerController player;
-    public Vector3 startPos = new Vector3(-6.06f, -3.04f, 0f);
+    public Vector3 startPos = new Vector3(-21.06f, -0.04f, 0f);
 
     private void Awake()
     {
